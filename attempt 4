@@ -1,0 +1,11 @@
+import itertools
+import string
+
+def generate_passwords():
+    characters = string.ascii_letters + string.digits
+    for password in itertools.product(characters, repeat=6):
+        yield password
+
+# Generate and print passwords
+for password in generate_passwords():
+    print(''.join(password))
