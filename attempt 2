@@ -1,0 +1,17 @@
+import itertools
+
+def generate_passwords():
+    characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    password_length = 6
+    
+    # Generate all possible combinations of characters
+    combinations = itertools.product(characters, repeat=password_length)
+    
+    # Yield each combination as a password
+    for combination in combinations:
+        yield ''.join(combination)
+
+# Test the function
+password_generator = generate_passwords()
+for password in password_generator:
+    print(password)
