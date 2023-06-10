@@ -1,0 +1,15 @@
+import string
+import itertools
+
+def generate_passwords():
+    letters = string.ascii_lowercase
+    digits = string.digits
+
+    for combination in itertools.product(letters, repeat=3):
+        for permutation in itertools.permutations(combination):
+            password = ''.join(permutation) + digits
+            yield password
+
+# Generate and print passwords
+for password in generate_passwords():
+    print(password)
