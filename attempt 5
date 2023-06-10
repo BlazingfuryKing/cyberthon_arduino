@@ -1,0 +1,14 @@
+import random
+import string
+
+def generate_password():
+    characters = string.digits + string.ascii_lowercase
+    password = [random.choice(string.ascii_lowercase) for _ in range(6)]
+    for i in range(6):
+        if password[i].isdigit():
+            password[i] = random.choice(characters.replace(password[i], '', 1))
+    return ''.join(password)
+
+# Generate and print password
+password = generate_password()
+print(password)
